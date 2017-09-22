@@ -10,7 +10,7 @@ class Solution(object):
         :type x: int
         :rtype: int
         """
-        sign = (x > 0) - (x < 0)
+        sign = (x > 0) - (x < 0)  # equal to cmp() (Python 2)
 
         reverse = 0
         x = abs(x)
@@ -19,6 +19,7 @@ class Solution(object):
             x = x // 10
             reverse = reverse * 10 + mod
 
+        # overflow
         if reverse > 2147483647 or x < -2147483648:
             return 0
 
