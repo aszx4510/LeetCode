@@ -18,9 +18,10 @@ class Solution(object):
             mod = x % 10
             x = x // 10
             reverse = reverse * 10 + mod
+        reverse *= sign
 
         # overflow
-        if reverse > 2147483647 or x < -2147483648:
+        if reverse > 2147483647 or reverse < -2147483648:
             return 0
 
-        return reverse * sign
+        return reverse
