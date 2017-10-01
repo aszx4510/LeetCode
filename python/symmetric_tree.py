@@ -17,13 +17,13 @@ class Solution(object):
         :type root: TreeNode
         :rtype: bool
         """
-        if not root:
+        if root is None:
             return True
         return self.isMirror(root.left, root.right)
 
     def isMirror(self, p, q):
-        if not p and not q:
+        if p is None and q is None:
             return True
-        if (not p) or (not q):  # (None, None) won't go here
+        if (p is None) or (q is None):  # (None, None) won't go here
             return False
         return (p.val == q.val) and self.isMirror(p.left, q.right) and self.isMirror(p.right, q.left)

@@ -17,7 +17,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: TreeNode
         """
-        if not nums:
+        if nums is None:
             return None
 
         mid =  len(nums) // 2
