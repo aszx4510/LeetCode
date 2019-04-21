@@ -4,6 +4,12 @@
 # https://leetcode.com/problems/reverse-linked-list-ii/
 
 
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
 class Solution:
     def reverseBetween(self, head: ListNode, m: int, n: int) -> ListNode:
         fake_head = ListNode(0)
