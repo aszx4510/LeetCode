@@ -3,11 +3,25 @@
 
 # https://leetcode.com/problems/coin-change/
 # https://leetcode.com/problems/coin-change/discuss/77372/Clean-dp-python-code
+# https://leetcode.com/problems/coin-change/discuss/77361/Fast-Python-BFS-Solution/81426
 
 
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
-        # Concise version
+        # BFS
+        level = seen = {0}
+        count = 0
+        while level:
+            if amount in level:
+                return count
+            # Check all possible amount in level
+            level = {a + c for a in level for c in coins if a + c <= amount} - seen
+            seen.update(level)
+            count += 1
+        return -1
+
+
+        # Concise version for DP
         MAX = float('inf')
         coin_counts = [0] + [MAX] * amount
 
