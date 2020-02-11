@@ -12,9 +12,9 @@ class Solution:
         x = 1
         while True:
             l = len(stack)
-            if len(stack) == k:
+            if l == k:
                 result.append(stack[:])
-            if len(stack) == k or x > n:
+            if l == k or x > n:
                 if not stack:
                     return result
                 x = stack.pop() + 1
