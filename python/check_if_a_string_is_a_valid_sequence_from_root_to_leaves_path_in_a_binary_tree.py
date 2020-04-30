@@ -21,10 +21,7 @@ class Solution:
         if len(arr) == 1:
             if root.val == arr[0] and not root.left and not root.right:
                 return True
-            else:
-                return False
         else:
             if root.val == arr[0]:
                 return self.isValidSequence(root.left, arr[1:]) or self.isValidSequence(root.right, arr[1:])
-            else:
-                return False
+        return False
