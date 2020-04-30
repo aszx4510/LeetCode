@@ -1,5 +1,5 @@
 
-# # 30-Day LeetCoding Challenge: Week 3 Day 7
+# 30-Day LeetCoding Challenge: Week 4 Day 7
 # First Unique Number
 
 # https://leetcode.com/explore/featured/card/30-day-leetcoding-challenge/531/week-4/3313/
@@ -9,7 +9,7 @@ class FirstUnique:
     def __init__(self, nums: List[int]):
         self.seen, self.over_two = set(), set()
         self.position = dict()
-        
+
         self.root, self.tail = ListNode(-1), ListNode(-1)
         self.root.next, self.tail.prev = self.tail, self.root
 
@@ -26,7 +26,7 @@ class FirstUnique:
             # Delete duplicate
             self._del(value)
             self.over_two.add(value)
-        else:        
+        else:
             # Append to tail
             node = ListNode(value)
             tail_prev = self.tail.prev
@@ -35,11 +35,11 @@ class FirstUnique:
 
             self.position[value] = node
             self.seen.add(value)
-    
-    def _del(self, value: int) -> None:        
+
+    def _del(self, value: int) -> None:
         node = self.position[value]
         prev_node, next_node = node.prev, node.next
-        
+
         prev_node.next = next_node
         next_node.prev = prev_node
 

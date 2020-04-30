@@ -1,5 +1,5 @@
 
-# # 30-Day LeetCoding Challenge: Week 2 Day 7
+# 30-Day LeetCoding Challenge: Week 3 Day 7
 # Leftmost Column with at Least a One
 
 # https://leetcode.com/explore/featured/card/30-day-leetcoding-challenge/530/week-3/3306/
