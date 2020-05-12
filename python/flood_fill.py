@@ -15,10 +15,6 @@ class Solution:
                 visited[row][col] = True
                 # Concise syntax
                 [dfs(row + x, col + y, color) for x, y in ((1, 0), (-1, 0), (0, 1), (0, -1))]
-                # dfs(row - 1, col, color)
-                # dfs(row + 1, col, color)
-                # dfs(row, col - 1, color)
-                # dfs(row, col + 1, color)
 
         visited = [[False] * len(image[0]) for r in range(len(image))]
         dfs(sr, sc, image[sr][sc])
