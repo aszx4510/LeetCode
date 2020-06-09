@@ -11,6 +11,12 @@ class Solution(object):
         :type n: int
         :rtype: bool
         """
+        # Fastest method
+        # logb(x) = logc(x) / logc(b)
+        l = math.log10(n) / math.log10(2)
+        return math.ceil(l) == math.floor(l)
+
+
         # bitwise trick
         if n == 0:
             return False
