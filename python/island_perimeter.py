@@ -5,12 +5,9 @@
 # https://discuss.leetcode.com/topic/68786/clear-and-easy-java-solution
 
 
-class Solution(object):
-    def islandPerimeter(self, grid):
-        """
-        :type grid: List[List[int]]
-        :rtype: int
-        """
+class Solution:
+    def islandPerimeter(self, grid: List[List[int]]) -> int:
+        # Mathematics, faster and use less memory
         if not grid:
             return 0
         island, neighbor = 0, 0
@@ -24,3 +21,23 @@ class Solution(object):
                     if j != n - 1 and grid[i][j + 1]:
                         neighbor += 1
         return island * 4 - neighbor * 2
+
+
+        # My method, DFS
+        def dfs(i, j):
+            if i < 0 or i >= len(grid) or j < 0 or j >= len(grid[0]):
+                return 1
+            if grid[i][j] == 0:
+                return 1
+            if grid[i][j] == '#':
+                return 0
+            grid[i][j] = '#'
+            p = [dfs(i + x, j + y) for x, y in zip((1, -1, 0, 0), (0, 0, 1, -1))]
+            return sum(p)
+
+        result = 0
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                if grid[i][j] == 1:
+                    result += dfs(i, j)
+        return result
