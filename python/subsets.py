@@ -15,3 +15,16 @@ class Solution:
                 result += backtracking(indices + [i], n)
             return result
         return backtracking([], len(nums))
+
+
+        # Similar method
+        def dfs(index, curr):
+            for i in range(index, len(nums)):
+                new = curr + nums[i: i + 1]
+                result.append(new)
+                dfs(i + 1, new)
+
+        result = [[]]
+        dfs(0, [])
+        return result
+
