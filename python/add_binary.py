@@ -5,13 +5,8 @@
 # https://discuss.leetcode.com/topic/6207/an-accepted-concise-python-recursive-solution-10-lines/5
 
 
-class Solution(object):
-    def addBinary(self, a, b):
-        """
-        :type a: str
-        :type b: str
-        :rtype: str
-        """
+class Solution:
+    def addBinary(self, a: str, b: str) -> str:
         if len(a) == 0:
             return b
         if len(b) == 0:
