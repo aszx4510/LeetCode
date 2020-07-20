@@ -6,23 +6,20 @@
 
 
 # Definition for singly-linked list.
-# class ListNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 
-class Solution(object):
-    def removeElements(self, head, val):
-        """
-        :type head: ListNode
-        :type val: int
-        :rtype: ListNode
-        """
-        while head is not None and head.val == val:
+class Solution:
+    def removeElements(self, head: ListNode, val: int) -> ListNode:
+        # Pass the nodes with val from the start point
+        while head and head.val == val:
             head = head.next
 
+        # Get the first node doesn't with val
         node = head
-        while node is not None and node.next is not None:
+        while node and node.next:
             if node.next.val == val:
                 node.next = node.next.next
             else:
