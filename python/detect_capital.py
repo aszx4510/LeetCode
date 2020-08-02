@@ -5,13 +5,6 @@
 # https://discuss.leetcode.com/topic/79951/python-has-useful-methods
 
 
-class Solution(object):
-    def detectCapitalUse(self, word):
-        """
-        :type word: str
-        :rtype: bool
-        """
-        # all upper
-        # all lower
-        # first character is upper
+class Solution:
+    def detectCapitalUse(self, word: str) -> bool:
         return word.isupper() or word.islower() or word.istitle()
