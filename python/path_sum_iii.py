@@ -6,35 +6,25 @@
 
 
 # Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 
-class Solution(object):
-    def pathSum(self, root, sum):
-        """
-        :type root: TreeNode
-        :type sum: int
-        :rtype: int
-        """
-        if root is None:
-            return 0
+class Solution:
+    def pathSum(self, root: TreeNode, sum: int) -> int:
+        def helper(node, target, temp_sum, cache):
+            if not node:
+                return
+            temp_sum += node.val
+            complement = temp_sum - target
+            result[0] += cache.get(complement, 0)
+            cache[temp_sum] = cache.get(temp_sum, 0) + 1
+            helper(node.left, target, temp_sum, cache)
+            helper(node.right, target, temp_sum, cache)
+            cache[temp_sum] -= 1
 
-        self.result = 0
-        self.helper(root, 0, sum, {0: 1})
-        # {0: 1} means the path definitely equal to sum, and the count of path is 1
-        return self.result
-
-
-    def helper(self, root, current_sum, sum, cache):
-        if root is not None:
-            complement = current_sum + root.val - sum
-            if complement in cache:
-                self.result += cache[complement]
-            cache[current_sum + root.val] = cache.get(current_sum + root.val, 0) + 1
-            self.helper(root.left, current_sum + root.val, sum, cache)
-            self.helper(root.right, current_sum + root.val, sum, cache)
-            cache[current_sum + root.val] -= 1
-        return
+        result = [0]
+        helper(root, sum, 0, {0: 1})
+        return result[0]
