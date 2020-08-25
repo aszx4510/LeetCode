@@ -6,18 +6,14 @@
 
 
 # Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 
-class Solution(object):
-    def sumOfLeftLeaves(self, root):
-        """
-        :type root: TreeNode
-        :rtype: int
-        """
+class Solution:
+    def sumOfLeftLeaves(self, root: TreeNode) -> int:
         if root is None:
             return 0
         # check left leaf
@@ -27,16 +23,12 @@ class Solution(object):
 
 
     # my method
-    # def sumOfLeftLeaves(self, root):
-    #     return self.sum_of_left_leaves(root, False)
-
-
-    # def sum_of_left_leaves(self, root, is_left):
-    #     if root is None:
-    #         return 0
-    #     if root.left is None and root.right is None:  # leaves
-    #         if is_left:
-    #             return root.val
-    #         else:
-    #             return 0
-    #     return self.sum_of_left_leaves(root.left, True) + self.sum_of_left_leaves(root.right, False)
+    def sumOfLeftLeaves(self, root: TreeNode) -> int:
+        def dfs(node, is_left):
+            if not node:
+                return 0
+            elif not node.left and not node.right and is_left:
+                return node.val
+            return dfs(node.left, True) + dfs(node.right, False)
+        
+        return dfs(root, False)
