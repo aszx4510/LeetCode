@@ -6,12 +6,22 @@
 # https://discuss.leetcode.com/topic/24716/simple-o-n-java-solution-using-insert-index/6
 
 
-class Solution(object):
-    def moveZeroes(self, nums):
+class Solution:
+    def moveZeroes(self, nums: List[int]) -> None:
         """
-        :type nums: List[int]
-        :rtype: void Do not return anything, modify nums in-place instead.
+        Do not return anything, modify nums in-place instead.
         """
+        # Two pointer
+        n = len(nums)
+        left = 0
+        for right in range(n):
+            if nums[right] != 0:
+                nums[left] = nums[right]
+                left += 1
+        nums[left:] = [0] * (n - left)
+        return
+
+
         # two pointer
         current = 0
         for i in range(len(nums)):
