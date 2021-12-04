@@ -5,17 +5,13 @@
 # https://discuss.leetcode.com/topic/85882/1-line-ruby-python
 
 
-class Solution(object):
-    def reverseWords(self, s):
-        """
-        :type s: str
-        :rtype: str
-        """
-        # concise version
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        # Concise version
         return ' '.join(s.split()[::-1])[::-1]
 
 
-        # my method
+        # My method
         tokens = s.split(' ')
         for i in range(len(tokens)):
             tokens[i] = tokens[i][::-1]
