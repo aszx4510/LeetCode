@@ -1,7 +1,8 @@
 
+# 1428. Leftmost Column with at Least a One
 # 30-Day LeetCoding Challenge: Week 3 Day 7
-# Leftmost Column with at Least a One
 
+# https://leetcode.com/problems/leftmost-column-with-at-least-a-one/
 # https://leetcode.com/explore/featured/card/30-day-leetcoding-challenge/530/week-3/3306/
 
 

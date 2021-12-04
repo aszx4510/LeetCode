@@ -1,7 +1,8 @@
 
+# 1427. Perform String Shifts
 # 30-Day LeetCoding Challenge: Week 2 Day 7
-# Perform String Shifts
 
+# https://leetcode.com/problems/perform-string-shifts/
 # https://leetcode.com/explore/featured/card/30-day-leetcoding-challenge/529/week-2/3299/
 
 

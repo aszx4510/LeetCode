@@ -1,7 +1,8 @@
 
+# 1430. Check If a String Is a Valid Sequence from Root to Leaves Path in a Binary Tree
 # 30-Day LeetCoding Challenge: Week 5 Day 2
-# Check If a String Is a Valid Sequence from Root to Leaves Path in a Binary Tree
 
+# https://leetcode.com/problems/check-if-a-string-is-a-valid-sequence-from-root-to-leaves-path-in-a-binary-tree/
 # https://leetcode.com/explore/featured/card/30-day-leetcoding-challenge/532/week-5/3315/
 
 

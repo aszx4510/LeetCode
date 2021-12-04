@@ -1,7 +1,8 @@
 
+# 1426. Counting Elements
 # 30-Day LeetCoding Challenge: Week 1 Day 7
-# Counting Elements
 
+# https://leetcode.com/problems/counting-elements/
 # https://leetcode.com/explore/challenge/card/30-day-leetcoding-challenge/528/week-1/3289/
 
 
