@@ -6,19 +6,15 @@
 
 
 # Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 
-class Solution(object):
-    def findTilt(self, root):
-        """
-        :type root: TreeNode
-        :rtype: int
-        """
-        # concise version
+class Solution:
+    def findTilt(self, root: Optional[TreeNode]) -> int:
+        # Concise version
         self.tilt = 0
         def node_sum(root):
             if root is None:
@@ -31,16 +27,16 @@ class Solution(object):
         return self.tilt
 
 
-        # my version
-        def sum_and_tilt(root):
-            if root is None:
-                return 0, [0]  # both sum and tilt are 0
-            left_sum, left_tilt = sum_and_tilt(root.left)
-            right_sum, right_tilt = sum_and_tilt(root.right)
-            left_tilt.extend(right_tilt)
-            left_tilt.append(abs(left_sum - right_sum))
-            print(left_tilt, right_tilt)
-            return left_sum + right_sum + root.val, left_tilt
+        # My version
+        def dfs(node):
+            if not node:
+                return 0, 0
 
-        _, tilt = sum_and_tilt(root)
-        return sum(tilt)
+            left_sum, left_tilt = dfs(node.left)
+            right_sum, right_tilt = dfs(node.right)
+
+            node_sum = left_sum + right_sum + node.val
+            node_tilt = abs(left_sum - right_sum) + left_tilt + right_tilt
+
+            return node_sum, node_tilt
+        return dfs(root)[1]
