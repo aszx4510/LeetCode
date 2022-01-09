@@ -6,7 +6,7 @@
 
 class Solution:
     def isRobotBounded(self, instructions: str) -> bool:
-        directions = [[1, 0], [0, 1], [-1, 0], [0, -1]]  # North, East, West and South
+        directions = [[1, 0], [0, 1], [-1, 0], [0, -1]]  # North, East, South and West
         idx = 0
         x = y = 0
 
