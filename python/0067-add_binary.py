@@ -2,11 +2,22 @@
 # 67. Add Binary
 
 # https://leetcode.com/problems/add-binary/description/
-# https://discuss.leetcode.com/topic/6207/an-accepted-concise-python-recursive-solution-10-lines/5
+# https://leetcode.com/problems/add-binary/solution/
+# https://leetcode.com/problems/add-binary/discuss/24500/an-accepted-concise-python-recursive-solution-10-lines
 
 
 class Solution:
     def addBinary(self, a: str, b: str) -> str:
+        # Bit manipulation
+        x, y = int(a, 2), int(b, 2)
+        while y:
+            answer = x ^ y
+            carry = (x & y) << 1
+            x, y = answer, carry
+        return bin(x)[2:]  # Remove the prefix '0b'
+
+
+        # Recursive method
         if len(a) == 0:
             return b
         if len(b) == 0:
@@ -20,6 +31,7 @@ class Solution:
             return self.addBinary(a[0:-1], b[0:-1]) + '1'
 
 
+        # My method
         # i = len(a) - 1
         # j = len(b) - 1
         # sum = 0
