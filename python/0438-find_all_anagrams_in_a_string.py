@@ -2,10 +2,36 @@
 # 438. Find All Anagrams in a String
 
 # https://leetcode.com/problems/find-all-anagrams-in-a-string/
+# https://leetcode.com/problems/find-all-anagrams-in-a-string/discuss/1737985/Python3-SLIDING-WINDOW-%2B-HASH-TABLE-Explained
 
 
 class Solution:
     def findAnagrams(self, s: str, p: str) -> List[int]:
+        # Another version which is faster than mine
+        hm, ans = defaultdict(int), []
+        sl, pl = len(s), len(p)
+        if sl < pl:
+            return []
+
+        for ch in p:
+            hm[ch] += 1
+        for i in range(pl - 1):
+            if s[i] in hm:
+                hm[s[i]] -= 1
+
+        for i in range(-1, sl - pl + 1):
+            print(f'{i=}')
+            if i > -1 and s[i] in hm:
+                hm[s[i]] += 1
+            if i + pl < sl and s[i + pl] in hm:
+                hm[s[i + pl]] -= 1
+
+            if all(v == 0 for v in hm.values()):
+                ans.append(i + 1)
+        return ans
+
+
+        # My method
         def check(i):
             if len(ans) != len(occur):
                 return
