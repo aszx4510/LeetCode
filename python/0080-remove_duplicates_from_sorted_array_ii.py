@@ -9,8 +9,7 @@ class Solution(object):
         if not nums:
             return 0
 
-        slow = 1
-        twice = False
+        slow, twice = 1, False
         for fast in range(1, len(nums)):
             if twice and nums[fast] == nums[fast - 1]:
                 continue
