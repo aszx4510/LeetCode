@@ -8,17 +8,13 @@
 
 
 # Definition for singly-linked list.
-# class ListNode(object):
+# class ListNode:
 #     def __init__(self, x):
 #         self.val = x
 #         self.next = None
 
-class Solution(object):
-    def hasCycle(self, head):
-        """
-        :type head: ListNode
-        :rtype: bool
-        """
+class Solution:
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
         slow, fast = head, head
         while fast is not None and fast.next is not None:
             slow = slow.next
@@ -26,18 +22,3 @@ class Solution(object):
             if slow is fast:
                 return True
         return False
-
-
-    # # space complexity: O(n)
-    # visited = list()
-    # def hasCycle(self, head):
-    #     """
-    #     :type head: ListNode
-    #     :rtype: bool
-    #     """
-    #     if head is None:
-    #         return False
-    #     if head in self.visited:
-    #         return True
-    #     self.visited.append(head)
-    #     return self.hasCycle(head.next)
