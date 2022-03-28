@@ -6,18 +6,12 @@
 # https://discuss.leetcode.com/topic/81759/1-liner-in-python-o-n-time
 
 
-class Solution(object):
-    def findPairs(self, nums, k):
-        """
-        :type nums: List[int]
-        :type k: int
-        :rtype: int
-        """
+class Solution:
+    def findPairs(self, nums: List[int], k: int) -> int:
         # concise version for Python
         if k > 0:
             return len(set(nums) & set(num + k for num in nums))
         elif k == 0:
-            from collections import Counter
             return sum(count > 1 for count in Counter(nums).values())
         else:
             return 0
