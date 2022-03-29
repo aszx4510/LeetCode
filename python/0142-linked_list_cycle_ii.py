@@ -15,6 +15,7 @@
 class Solution:
     def detectCycle(self, head: ListNode) -> ListNode:
         # Space Complexity: O(1), without using extra space
+        # a + 2b + c = 2(a + b), a = c
         slow, fast = head, head
         while fast and fast.next:
             slow = slow.next

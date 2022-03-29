@@ -8,6 +8,8 @@
 
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
+        # Same question to 142. Linked List Cycle II
+        # a + 2b + c = 2(a + b), a = c
         slow, fast = nums[0], nums[nums[0]]
         while slow != fast:
             slow = nums[slow]
