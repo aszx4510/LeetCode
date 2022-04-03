@@ -11,9 +11,10 @@ class Solution:
         Do not return anything, modify nums in-place instead.
         """
         def swap(nums, i, j):
-            temp = nums[i]
-            nums[i] = nums[j]
-            nums[j] = temp
+            # temp = nums[i]
+            # nums[i] = nums[j]
+            # nums[j] = temp
+            nums[i], nums[j] = nums[j], nums[i]
 
 
         def reverse(nums, satrt):
@@ -27,9 +28,11 @@ class Solution:
         i = len(nums) - 2
         while i >= 0 and nums[i] >= nums[i + 1]:
             i -= 1
-        if i >= 0:
+
+        if i >= 0:  # Skip when the order reversed completely (i is -1)
             j = len(nums) - 1
             while j >= 0 and nums[i] >= nums[j]:
                 j -= 1
             swap(nums, i, j)
+
         reverse(nums, i + 1)
