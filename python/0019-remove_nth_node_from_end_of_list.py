@@ -19,9 +19,9 @@ class Solution:
             if not fast:
                 return head.next
             fast = fast.next
-        
+
         while fast:
             slow, fast = slow.next, fast.next
         slow.next = slow.next.next
-        
+
         return head
