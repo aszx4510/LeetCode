@@ -3,30 +3,26 @@
 
 # https://leetcode.com/problems/reverse-linked-list/description/
 # https://discuss.leetcode.com/topic/14043/python-iterative-and-recursive-solution
+# https://leetcode.com/problems/reverse-linked-list/solution/
 
 
-class Solution(object):
-    def reverseList(self, head):
-        """
-        :type head: ListNode
-        :rtype: ListNode
-        """
-        # iterative
+class Solution:
+    def reverseList(self, head: ListNode) -> ListNode:
+        # Iterative
         prev = None
         while head is not None:
-            next_node = head.next  # record the head of next round
+            next_node = head.next  # Record the head of next round
             head.next = prev
             prev = head
-            head = next_node  # move to next node
+            head = next_node  # Move to next node
         return prev
 
-        # recursively
-        return self.reverse(head)
 
+        # Recursively
+        if not head or not head.next:
+            return head
 
-    def reverse(self, node, prev=None):
-        if node is None:
-            return prev
-        next_node = node.next
-        node.next = prev
-        return self.reverse(next_node, node)
+        p = self.reverseList(head.next)
+        head.next.next = head
+        head.next = None
+        return p
