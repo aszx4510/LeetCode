@@ -4,12 +4,8 @@
 # https://leetcode.com/problems/house-robber/description/
 
 
-class Solution(object):
-    def rob(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
+class Solution:
+    def rob(self, nums: List[int]) -> int:
         prev_rob = [0, 0]
         for num in nums:
             now_rob = max(prev_rob[0] + num, prev_rob[1])
