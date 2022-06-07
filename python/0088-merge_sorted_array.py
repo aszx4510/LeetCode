@@ -5,14 +5,10 @@
 # https://discuss.leetcode.com/topic/19513/beautiful-python-solution/3
 
 
-class Solution(object):
-    def merge(self, nums1, m, nums2, n):
+class Solution:
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
         """
-        :type nums1: List[int]
-        :type m: int
-        :type nums2: List[int]
-        :type n: int
-        :rtype: void Do not return anything, modify nums1 in-place instead.
+        Do not return anything, modify nums1 in-place instead.
         """
         while n > 0:
             if m <= 0 or nums1[m - 1] < nums2[n - 1]:
