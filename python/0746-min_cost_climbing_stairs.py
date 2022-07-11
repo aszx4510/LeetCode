@@ -4,12 +4,8 @@
 # https://leetcode.com/problems/min-cost-climbing-stairs/description/
 
 
-class Solution(object):
-    def minCostClimbingStairs(self, cost):
-        """
-        :type cost: List[int]
-        :rtype: int
-        """
+class Solution:
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
         cost_sum = [0] * len(cost)
         for i in range(len(cost)):
             if i == 0 or i == 1:
