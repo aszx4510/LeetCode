@@ -5,12 +5,8 @@
 # https://discuss.leetcode.com/topic/33536/a-summary-of-all-solutions-new-method-included-at-15-30pm-jan-8th
 
 
-class Solution(object):
-    def isPowerOfThree(self, n):
-        """
-        :type n: int
-        :rtype: bool
-        """
+class Solution:
+    def isPowerOfThree(self, n: int) -> bool:
         if n <= 0:
             return False
         import math

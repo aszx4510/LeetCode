@@ -6,20 +6,14 @@
 
 
 # Definition for a binary tree node.
-# class TreeNode(object):
+# class TreeNode:
 #     def __init__(self, x):
 #         self.val = x
 #         self.left = None
 #         self.right = None
 
-class Solution(object):
-    def lowestCommonAncestor(self, root, p, q):
-        """
-        :type root: TreeNode
-        :type p: TreeNode
-        :type q: TreeNode
-        :rtype: TreeNode
-        """
+class Solution:
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         # for Binary Search Tree (BST)
         while (root.val - p.val) * (root.val - q.val) > 0:
             root = (root.left, root.right)[p.val > root.val]  # [p.val > root.val] will be the [0] or [1]
