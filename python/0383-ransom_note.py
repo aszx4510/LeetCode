@@ -4,18 +4,17 @@
 # https://leetcode.com/problems/ransom-note/description/
 
 
-class Solution(object):
-    def canConstruct(self, ransomNote, magazine):
-        """
-        :type ransomNote: str
-        :type magazine: str
-        :rtype: bool
-        """
-        count = dict()
-        for c in magazine:
-            count[c] = count.setdefault(c, 0) + 1
-        for c in ransomNote:
-            count[c] = count.setdefault(c, 0) - 1
-            if count[c] < 0:
+class Solution:
+    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        def count_letters(string: str):
+            d = defaultdict(int)
+            for s in string:
+                d[s] += 1
+            return d
+        ransom_dict = count_letters(ransomNote)
+        magazine_dict = count_letters(magazine)
+        for letter, number in ransom_dict.items():
+            # if not (letter in magazine_dict or number <= magazine[letter])
+            if not number <= magazine_dict[letter]:
                 return False
         return True
