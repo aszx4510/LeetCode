@@ -5,18 +5,14 @@
 
 
 # Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 
-class Solution(object):
-    def averageOfLevels(self, root):
-        """
-        :type root: TreeNode
-        :rtype: List[float]
-        """
+class Solution:
+    def averageOfLevels(self, root: TreeNode) -> List[float]:
         # Breadth-first Search (BFS)
         # copy from the other submissions
         level = [root]
