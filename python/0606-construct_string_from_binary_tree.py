@@ -5,28 +5,24 @@
 
 
 # Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 
-class Solution(object):
-    def tree2str(self, t):
-        """
-        :type t: TreeNode
-        :rtype: str
-        """
+class Solution:
+    def tree2str(self, root: Optional[TreeNode]) -> str:
         # concise version
         result = ''
-        if t is None:
+        if root is None:
             return result
-        result += str(t.val)
-        if t.right is not None:
-            result += '(' + self.tree2str(t.left) + ')'
-            result += '(' + self.tree2str(t.right) + ')'
-        elif t.left is not None:
-            result += '(' + self.tree2str(t.left) + ')'
+        result += str(root.val)
+        if root.right is not None:
+            result += '(' + self.tree2str(root.left) + ')'
+            result += '(' + self.tree2str(root.right) + ')'
+        elif root.left is not None:
+            result += '(' + self.tree2str(root.left) + ')'
         return result
 
 
@@ -46,5 +42,5 @@ class Solution(object):
             self.construct += ')'
             return
 
-        _tree2str(t)
+        _tree2str(root)
         return self.construct[1:-1]
