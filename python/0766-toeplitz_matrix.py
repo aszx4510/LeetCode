@@ -4,12 +4,8 @@
 # https://leetcode.com/problems/toeplitz-matrix/description/
 
 
-class Solution(object):
-    def isToeplitzMatrix(self, matrix):
-        """
-        :type matrix: List[List[int]]
-        :rtype: bool
-        """
+class Solution:
+    def isToeplitzMatrix(self, matrix: List[List[int]]) -> bool:
         row = len(matrix)
         column = len(matrix[0])
         for i in range(row - 1):
