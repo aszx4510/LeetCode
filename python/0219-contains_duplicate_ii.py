@@ -5,14 +5,8 @@
 # https://discuss.leetcode.com/topic/22444/python-concise-solution-with-dictionary
 
 
-
-class Solution(object):
-    def containsNearbyDuplicate(self, nums, k):
-        """
-        :type nums: List[int]
-        :type k: int
-        :rtype: bool
-        """
+class Solution:
+    def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
         # only record the last position
         position = dict()
         for i, value in enumerate(nums):
@@ -31,4 +25,3 @@ class Solution(object):
         #                 return True
         #     positions.setdefault(nums[i], list()).append(i)
         # return False
-
