@@ -6,16 +6,15 @@
 
 
 class Solution:
-    def largestOverlap(self, A: List[List[int]], B: List[List[int]]) -> int:
-        
+    def largestOverlap(self, img1: List[List[int]], img2: List[List[int]]) -> int:
         diff = defaultdict(int)
         a, b = [], []
 
-        for i in range(len(A)):
-            for j in range(len(A[0])):
-                if A[i][j]:
+        for i in range(len(img1)):
+            for j in range(len(img1[0])):
+                if img1[i][j]:
                     a.append((i, j))
-                if B[i][j]:
+                if img2[i][j]:
                     b.append((i, j))
 
         result = 0
