@@ -5,12 +5,8 @@
 # https://discuss.leetcode.com/topic/96807/python-straightforward-with-explanation
 
 
-class Solution(object):
-    def findErrorNums(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[int]
-        """
+class Solution:
+    def findErrorNums(self, nums: List[int]) -> List[int]:
         # a little math
         nums_sum = (len(nums) + 1) * len(nums) // 2
         no_repeat_sum = sum(set(nums))
